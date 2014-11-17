@@ -1,7 +1,7 @@
 package zuul;
 
 public class Quizz {
-		private boolean passed;
+		
 		private int points;
 
 
@@ -13,7 +13,6 @@ public class Quizz {
 
 		public Quizz(){
 			points=0;
-			passed=false;
 		}
 
 

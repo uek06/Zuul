@@ -7,6 +7,7 @@ package zuul;
 public class Course {
     private String name;
     //test
+    //TES2
     
     public Course(String name){
         this.name=name;

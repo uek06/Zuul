@@ -17,7 +17,10 @@ public class Quizz {
 				new Question(Language.QUIZZSSIIQUESTION2.toString(),Language.QUIZZSSIIREPONSE2.toString()),
 		};	
 		
-
+/**
+ * Cree un quizz et charge le tableau des questions selon la matiere donnee en parametre 
+ * @param c : la matiere du quizz
+ */
 		public Quizz(Course c){
 			points=0;
 			
@@ -67,7 +70,9 @@ public class Quizz {
 			return points>=(float)theQuestions.length/2;
 		}
 
-	
+	/**
+	 * Affiche le score qu'a obtenu l'utilisateur au quizz
+	 */
 		public void printScore(){
 			System.out.println(Language.QUIZZVOTRESCOREESTDE+" "+points+"/"+theQuestions.length);
 		}

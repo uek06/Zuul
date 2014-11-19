@@ -7,10 +7,17 @@ public enum Language {
 		QUIZZBIENVENUE(""),
 		QUIZZQUESTIONSUIVANTE(""),
 		QUIZZVOTRECHOIX(""),
-		QUIZZQUESTION1(""),
-		QUIZZQUESTION2(""),
-		QUIZZREPONSE1(""),
-		QUIZZREPONSE2("");
+		QUIZZOOPQUESTION1(""),
+		QUIZZOOPQUESTION2(""),
+		QUIZZOOPQUESTION3(""),
+		QUIZZOOPREPONSE1(""),
+		QUIZZOOPREPONSE2(""),
+		QUIZZOOPREPONSE3(""),
+		QUIZZSSIIQUESTION1(""),
+		QUIZZSSIIQUESTION2(""),
+		QUIZZSSIIREPONSE1(""),
+		QUIZZSSIIREPONSE2(""),
+		QUIZZVOTRESCOREESTDE("");
 
 		String str;
 
@@ -62,8 +69,15 @@ public enum Language {
 			"Votre choix : ",
 			"Qui détient et maintient java depuis 2009? ikea, oracle ou mcdonald ?",
 			"Quelle est la mascotte de Java? duke, tux ou mario?",
+			"Ce projet est-il exceptionnel? (oui,non)",
 			"oracle",
 			"duke",
+			"oui",
+			"Est ce que ce cours est pourri? (oui,non)",
+			"Quelle est la meilleure chose à faire pendant ce cours? (attendrecorrection,trackmania)",
+			"oui",
+			"trackmania",
+			"Votre score est de "
 		};
 
 		private final static String [] en ={

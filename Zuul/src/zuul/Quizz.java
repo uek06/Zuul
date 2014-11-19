@@ -3,16 +3,29 @@ package zuul;
 public class Quizz {
 		
 		private int points;
+		private Question [] theQuestions;
 
 
-		private final Question [] theQuestions = {
-			new Question(Language.QUIZZQUESTION1.toString(),Language.QUIZZREPONSE1.toString()),
-			new Question(Language.QUIZZQUESTION2.toString(),Language.QUIZZREPONSE2.toString()),
+		private final Question [] oopQuestions = {
+			new Question(Language.QUIZZOOPQUESTION1.toString(),Language.QUIZZOOPREPONSE1.toString()),
+			new Question(Language.QUIZZOOPQUESTION2.toString(),Language.QUIZZOOPREPONSE2.toString()),
+			new Question(Language.QUIZZOOPQUESTION3.toString(),Language.QUIZZOOPREPONSE3.toString()),
 		};	
 
+		private final Question [] ssiiQuestions = {
+				new Question(Language.QUIZZSSIIQUESTION1.toString(),Language.QUIZZSSIIREPONSE1.toString()),
+				new Question(Language.QUIZZSSIIQUESTION2.toString(),Language.QUIZZSSIIREPONSE2.toString()),
+		};	
+		
 
-		public Quizz(){
+		public Quizz(Course c){
 			points=0;
+			
+			switch (c.getName()){
+				case "OOP" : theQuestions = oopQuestions;break;
+				case "SSII" : theQuestions = ssiiQuestions;break;
+				default : theQuestions = oopQuestions;break;
+			}
 		}
 
 
@@ -43,8 +56,7 @@ public class Quizz {
 			for (int i=0;i<theQuestions.length;i++){
 				Question currentQuestion = theQuestions[i];
 				printQuestion(currentQuestion);
-				//ici on  récupère une entree au clavier
-				if (currentQuestion.goodAnswer("La réponse récupérée au clavier")) points++;
+				if (currentQuestion.goodAnswer(WordReader.getWord())) points++;
 			}
 		}
 		
@@ -56,4 +68,7 @@ public class Quizz {
 		}
 
 	
+		public void printScore(){
+			System.out.println(Language.QUIZZVOTRESCOREESTDE+" "+points+"/"+theQuestions.length);
+		}
 }

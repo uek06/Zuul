@@ -27,7 +27,9 @@ public enum Language {
         DESCRIPTIONCAFET("");
 
 		String str;
-
+		
+		
+		String fdp;
 		Language(String str){
 			this.str=str;
 		}

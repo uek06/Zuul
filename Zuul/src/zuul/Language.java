@@ -4,6 +4,10 @@ public enum Language {
 
 		BONJOUR(""),
 		AUREVOIR(""),
+		NORD(""),
+		EST(""),
+		SUD(""),
+		OUEST(""),
 		QUIZZBIENVENUE(""),
 		QUIZZQUESTIONSUIVANTE(""),
 		QUIZZVOTRECHOIX(""),
@@ -24,7 +28,9 @@ public enum Language {
 		DESCRIPTIONTD(""),
         DESCRIPTIONEXAM(""),
         DESCRIPTIONBIBLIO(""),
-        DESCRIPTIONCAFET("");
+        DESCRIPTIONCAFET(""),
+		ERRORHEALTH(""),
+		VOUSAVEZASSISSTERA("");
 
 		String str;
 		
@@ -73,6 +79,10 @@ public enum Language {
 		private final static String [] fr = {
 			"Bonjour",
 			"Au revoir",
+			"nord",
+			"est",
+			"sud",
+			"ouest",
 			"L'examen va commencer. Pour réussir vous devez avoir au moins 50% des réponses justes\n",
 			"Question suivante :",
 			"Votre choix : ",
@@ -89,11 +99,12 @@ public enum Language {
 			"Votre score est de ",
 			"dans le hall",
 			"dans le couloir",
-			"dans l'amphi",
-			"dans la salle de TD",
+			"dans l'amphi de ",
+			"dans la salle de TD de ",
 			"dans la salle d'examen",
 			"dans la bibliothèque",
-			"dans la caféteria"
+			"dans la caféteria",
+			"Vous n'avez pas assez d'énergie pour prendre part à cet examen"
 		};
 
 		private final static String [] en ={

@@ -1,10 +1,10 @@
 package zuul;
 
 
-public class ItemLab extends Item{
+public class ItemLab {
+	Course course;
 	
-	
-	public ItemLab(String description){
-		super(description);
+	public ItemLab(Course c){
+		course=c;
 	}
 }

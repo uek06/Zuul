@@ -1,9 +1,9 @@
 package zuul;
 
-public class ItemCourse extends Item{
+public class ItemCourse {
+	Course course;
 	
-	
-	public ItemCourse(String description){
-		super(description);
+	public ItemCourse(Course c){
+		course=c;
 	}
 }

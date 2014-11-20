@@ -6,6 +6,7 @@ public class Student {
 	private int health;
 	private ArrayList<ItemCourse> coursSuivis;
 	private ArrayList<ItemLab> tdSuivis;
+	private static final int SANTEMINPOURTEST = 60;
 	
 	
 	public Student(){
@@ -14,7 +15,7 @@ public class Student {
 	
 	
 	public void drinkCoffee(){
-		health+=20;
+		health+=50;
 	}
 	
 	public void assissterAUnCours(Course cours){
@@ -36,6 +37,13 @@ public class Student {
 		q.startQuizz();
 		q.printScore();
 		return q.isPassed();
+	}
+	/**
+	 * 
+	 * @return true si l'etudiant peut passer le test
+	 */
+	public boolean santeMiniPourParticiperAUnExam(){
+		return health >= SANTEMINPOURTEST;
 	}
 	
 

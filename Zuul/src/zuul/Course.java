@@ -15,4 +15,16 @@ public class Course {
 		return name;
 	}
 	
+	public boolean equals(Object obj) {
+		if(this == obj) {
+			return true; // Reference equality.
+		}
+		if(!(obj instanceof Course)) {
+			return false; // Not the same type.
+		}
+		// Gain access to the other student’s fields.
+		Course other = (Course) obj;
+		return name.equals(other.getName());
+	}
+	
 }

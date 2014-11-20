@@ -1,9 +1,10 @@
 package zuul;
 
 public class ItemCourse {
-	Course course;
+	Course cours;
 	
 	public ItemCourse(Course c){
-		course=c;
+		cours = c;
+		}
+	
 	}
-}

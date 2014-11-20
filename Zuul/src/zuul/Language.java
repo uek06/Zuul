@@ -20,12 +20,15 @@ public enum Language {
 		QUIZZVOTRESCOREESTDE(""),
 		DESCRIPTIONHALL(""),
 		DESCRIPTIONCOULOIR(""),
-		DESCRIPTIONAMPHI("");
+		DESCRIPTIONAMPHI(""),
+		ERRORHEALTH(""),
+		VOUSAVEZASSISSTERA("");
+		
 
 		String str;
 		
 		
-		String fdp;
+		
 		Language(String str){
 			this.str=str;
 		}
@@ -89,7 +92,8 @@ public enum Language {
 			"dans la salle de TD",
 			"dans la salle d'examen",
 			"dans la bibliothèque",
-			"dans la caféteria"
+			"dans la caféteria",
+			"Vous n'avez pas assez d'énergie pour prendre part à cet examen"
 		};
 
 		private final static String [] en ={

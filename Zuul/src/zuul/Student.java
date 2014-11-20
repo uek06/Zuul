@@ -29,9 +29,14 @@ public class Student {
 	
 	public void faireUnExamen(Course cours){
 		if (health<0) 
+			//  
 	}
 	
+	/*A mettre dans language
+	ERRORHEALTH(""),
+	VOUSAVEZASSISSTERA("");
 	
 	
+	"Vous n'avez pas assez d'énergie pour prendre part à cet examen"
 	
 }

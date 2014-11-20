@@ -24,6 +24,8 @@ public enum Language {
 
 		String str;
 		
+		
+		String fdp;
 		Language(String str){
 			this.str=str;
 		}

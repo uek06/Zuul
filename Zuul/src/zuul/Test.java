@@ -7,9 +7,8 @@ public class Test{
 
 		Item b = new Book("un livre");
 
-		Quizz a = new Quizz(new Course("OOP"));
+		Quizz a = new Quizz(new Course("SSII"));
 		a.startQuizz();
-		System.out.println(a.isPassed());
 		a.printScore();
 
 	}

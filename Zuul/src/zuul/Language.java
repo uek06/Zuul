@@ -17,7 +17,10 @@ public enum Language {
 		QUIZZSSIIQUESTION2(""),
 		QUIZZSSIIREPONSE1(""),
 		QUIZZSSIIREPONSE2(""),
-		QUIZZVOTRESCOREESTDE("");
+		QUIZZVOTRESCOREESTDE(""),
+		DESCRIPTIONHALL(""),
+		DESCRIPTIONCOULOIR(""),
+		DESCRIPTIONAMPHI("");
 
 		String str;
 		
@@ -77,7 +80,14 @@ public enum Language {
 			"Quelle est la meilleure chose à faire pendant ce cours? (attendrecorrection,trackmania)",
 			"oui",
 			"trackmania",
-			"Votre score est de "
+			"Votre score est de ",
+			"dans le hall",
+			"dans le couloir",
+			"dans l'amphi",
+			"dans la salle de TD",
+			"dans la salle d'examen",
+			"dans la bibliothèque",
+			"dans la caféteria"
 		};
 
 		private final static String [] en ={

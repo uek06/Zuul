@@ -20,9 +20,6 @@ public enum Language {
 		QUIZZVOTRESCOREESTDE("");
 
 		String str;
-
-		String fdp;
-		
 		
 		Language(String str){
 			this.str=str;

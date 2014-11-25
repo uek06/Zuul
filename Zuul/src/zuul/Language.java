@@ -1,13 +1,17 @@
 package zuul;
 
 public enum Language {
-
+        
+        BIENVENUE(""),
 		BONJOUR(""),
 		AUREVOIR(""),
 		NORD(""),
 		EST(""),
 		SUD(""),
 		OUEST(""),
+		SORTIE(""),
+		PASDEPORTE(""),
+		VOUSETES(""),
 		QUIZZBIENVENUE(""),
 		QUIZZQUESTIONSUIVANTE(""),
 		QUIZZVOTRECHOIX(""),
@@ -77,12 +81,18 @@ public enum Language {
 		 */ 
 		
 		private final static String [] fr = {
+		    "Bienvenue dans le jeu Zuul où vous vous baladez dans Polytech\n"
+		    + "Tapez la direction dans laquelle vous voulez aller, sortie si vous voulez quitter, "
+		    + "infos pour afficher les détails de votre joueur",
 			"Bonjour",
 			"Au revoir",
 			"nord",
 			"est",
 			"sud",
 			"ouest",
+			"sortie",
+			"Cela ne mène à rien...",
+			"Vous êtes ",
 			"L'examen va commencer. Pour réussir vous devez avoir au moins 50% des réponses justes\n",
 			"Question suivante :",
 			"Votre choix : ",
@@ -104,7 +114,8 @@ public enum Language {
 			"dans la salle d'examen",
 			"dans la bibliothèque",
 			"dans la caféteria",
-			"Vous n'avez pas assez d'énergie pour prendre part à cet examen"
+			"Vous n'avez pas assez d'énergie pour prendre part à cet examen",
+			"Vous avez assister"
 		};
 
 		private final static String [] en ={

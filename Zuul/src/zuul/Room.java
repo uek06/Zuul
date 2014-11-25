@@ -62,7 +62,7 @@ public class Room
      */
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        return Language.VOUSETES + description + ".\n" + getExitString();
     }
 
     /**

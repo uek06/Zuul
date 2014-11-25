@@ -5,6 +5,21 @@ package zuul;
  *
  */
 public class Game {
+    private Room currentRoom;
+    private String word;
+    private Student player;
+    private static final Course POO=new Course("POO");
+    private static final Course SSII=new Course("SSII");
+    
+    public Game(){
+        //methode qui demande la langue ?
+        Language.initLanguage("FR");
+        createRooms();
+        player=new Student();
+        
+        
+        
+    }
     
     private void createRooms(){
         Room corridor1, corridor2, corridor3, corridor4, corridor5;
@@ -44,8 +59,58 @@ public class Game {
         
         classroom1.setExit(""+Language.EST,corridor4);
         
+        classroom2.setExit(""+Language.SUD,corridor4);
         
+        lab1.setExit(""+Language.SUD,corridor3);
         
+        lab2.setExit(""+Language.OUEST,corridor3);
         
+        examRoom.setExit(""+Language.SUD,corridor5);
+        
+        library.setExit(""+Language.EST,corridor3);
+        
+        lunchroom.setExit(""+Language.OUEST,corridor5);   
+        
+        currentRoom=corridor1;
+    }
+    public void play() {
+        printWelcome();
+        boolean finished = false;
+        while (!finished) {
+            word=WordReader.getWord();
+            finished = processCommand(word);
+        }
+        System.out.println("Thank you for playing.  Good bye.");
+    }
+    
+    private void printWelcome() {
+        System.out.println();
+        System.out.println(Language.BIENVENUE);
+        System.out.println();
+        System.out.println(currentRoom.getLongDescription());
+    }
+    
+    private boolean processCommand(String w) {
+        boolean wantToQuit=false;
+        if (w.equals(Language.SORTIE)) wantToQuit=true;
+        else{
+            goRoom(w);
+        }
+        return wantToQuit;
+    }
+    private void goRoom(String direction) {
+        // Try to leave current room.
+        Room nextRoom = currentRoom.getExit(direction);
+
+        if (nextRoom == null) {
+            System.out.println(Language.PASDEPORTE);
+        } else {
+            currentRoom = nextRoom;
+            System.out.println(currentRoom.getLongDescription());
+        }
+    }
+    public static void main(String[] args){
+        Game test=new Game();
+        test.play();
     }
 }

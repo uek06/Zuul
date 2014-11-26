@@ -1,5 +1,7 @@
 package zuul;
 
+import java.util.Random;
+
 /**
  * @author ugo
  *
@@ -8,8 +10,11 @@ public class Game {
     private Room currentRoom;
     private String word;
     private Student player;
-    private static final Course POO=new Course("POO");
-    private static final Course SSII=new Course("SSII");
+    private static final Course [] COURSES = {
+            new Course(""),
+            new Course("POO"),
+            new Course("SSII")
+    };
     
     public Game(){
         //methode qui demande la langue ?
@@ -29,8 +34,8 @@ public class Game {
         corridor3=new Room(""+Language.DESCRIPTIONCOULOIR);
         corridor4=new Room(""+Language.DESCRIPTIONCOULOIR);
         corridor5=new Room(""+Language.DESCRIPTIONCOULOIR);
-        classroom1=new Room(Language.DESCRIPTIONAMPHI+"POO");
-        classroom2=new Room(Language.DESCRIPTIONAMPHI+"SSII");
+        classroom1=new Classroom(Language.DESCRIPTIONAMPHI+"1");
+        classroom2=new Room(Language.DESCRIPTIONAMPHI+"2");
         lab1=new Room(Language.DESCRIPTIONTD+"POO");
         lab2=new Room(Language.DESCRIPTIONTD+"SSII");
         examRoom=new Room(""+Language.DESCRIPTIONEXAM);
@@ -73,7 +78,8 @@ public class Game {
         
         currentRoom=corridor1;
     }
-    public void play() {
+
+    public void play() throws InterruptedException{
         printWelcome();
         boolean finished = false;
         while (!finished) {
@@ -86,11 +92,11 @@ public class Game {
     private void printWelcome() {
         System.out.println();
         System.out.println(Language.BIENVENUE);
-        System.out.println();
         System.out.println(currentRoom.getLongDescription());
+        System.out.println(currentRoom.getExitString());
     }
     
-    private boolean processCommand(String w) {
+    private boolean processCommand(String w) throws InterruptedException{
         boolean wantToQuit=false;
         if (w.equals(Language.SORTIE)) wantToQuit=true;
         else{
@@ -98,7 +104,7 @@ public class Game {
         }
         return wantToQuit;
     }
-    private void goRoom(String direction) {
+    private void goRoom(String direction) throws InterruptedException {
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
 
@@ -107,9 +113,21 @@ public class Game {
         } else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            currentRoom.action(player);
+            System.out.println(currentRoom.getExitString());
         }
     }
-    public static void main(String[] args){
+    
+    /**
+     * 
+     * @return Un Objet Course pris au hasard dans le tableau des matieres  
+     */
+    public static Course getRandomCourse(){
+        Random r = new Random();
+        return COURSES[r.nextInt(COURSES.length)];
+    }
+    
+    public static void main(String[] args) throws InterruptedException{
         Game test=new Game();
         test.play();
     }

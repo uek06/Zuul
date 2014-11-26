@@ -6,26 +6,13 @@ public class Tablet extends Item{
 		
 	private Course theCourse;
 	private boolean jeuvideo;
-	
-	private final Course [] lesMatieres = {
-			new Course("OOP"),
-			new Course("SSII")
-	};
-	
 
 	public Tablet(String description){
 		super(description);
-		theCourse=getRandomCourse();
+		theCourse=Game.getRandomCourse();
 	}
 	
-	/**
-	 * 
-	 * @return Un Objet Course pris au hasard dans le tableau des matieres  
-	 */
-	public Course getRandomCourse(){
-		Random r = new Random();
-		return lesMatieres[r.nextInt(lesMatieres.length)];
-	}
+
 	
 	/**
 	 * 

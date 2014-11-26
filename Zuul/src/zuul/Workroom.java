@@ -2,9 +2,10 @@ package zuul;
 
 public class Workroom extends Room{
 
-    private Course course;
+    protected Course course;
     public Workroom(String description) {
         super(description);
     }
+    
 
 }

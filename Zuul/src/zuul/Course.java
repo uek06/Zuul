@@ -14,6 +14,7 @@ public class Course {
 	public String getName() {
 		return name;
 	}
+
 	
 	public boolean equals(Object obj) {
 		if(this == obj) {

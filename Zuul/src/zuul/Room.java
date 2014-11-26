@@ -62,7 +62,7 @@ public class Room
      */
     public String getLongDescription()
     {
-        return Language.VOUSETES + description + ".\n" + getExitString();
+        return "\n"+Language.VOUSETES + description + ".";
     }
 
     /**
@@ -70,9 +70,9 @@ public class Room
      * "Exits: north west".
      * @return Details of the room's exits.
      */
-    private String getExitString()
+    public String getExitString()
     {
-        String returnString = "Exits:";
+        String returnString = ""+Language.DIRECTIONS;
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
             returnString += " " + exit;
@@ -89,6 +89,16 @@ public class Room
     public Room getExit(String direction) 
     {
         return exits.get(direction);
+    }
+
+    public void action(Student player) throws InterruptedException {
+        // TODO Stub de la méthode généré automatiquement
+        
+    }
+
+    public void setCourse(Course course) {
+        // TODO Stub de la méthode généré automatiquement
+        
     }
     
     

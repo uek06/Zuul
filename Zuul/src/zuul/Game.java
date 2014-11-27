@@ -21,9 +21,8 @@ public class Game {
         Language.initLanguage("FR");
         createRooms();
         player=new Student();
-        
-        
-        
+        player.initMap(COURSES);
+
     }
     
     private void createRooms(){
@@ -99,6 +98,7 @@ public class Game {
     private boolean processCommand(String w) throws InterruptedException{
         boolean wantToQuit=false;
         if (w.equals(Language.SORTIE)) wantToQuit=true;
+        //else if (w.equals("savoir")) player.printInfos();
         else{
             goRoom(w);
         }

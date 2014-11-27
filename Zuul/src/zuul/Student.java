@@ -1,13 +1,13 @@
 package zuul;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Student {
 	private int health;
-	private ArrayList<ItemCourse> coursSuivisSSII = new ArrayList<ItemCourse>();
-	private ArrayList<ItemCourse> coursSuivisPOO = new ArrayList<ItemCourse>();
-	private ArrayList<ItemLab> tdSuivisSSII = new ArrayList<ItemLab>();
-	private ArrayList<ItemLab> tdSuivisPOO = new ArrayList<ItemLab>();
+	private ArrayList<ItemStudy> i = new ArrayList<ItemStudy>();
+	private HashMap<ItemStudy, Integer> coursSuivis= new HashMap<ItemStudy,Integer>();
+	private HashMap<ItemLab,Integer> tdSuivis= new HashMap<ItemLab,Integer>();
 	private static final int SANTEMINPOURTEST = 60;
 	private static final int NUMBEROFOOPCOURSES = 2;
 	private static final int NUMBEROFSSIICOURSES = 2;
@@ -20,34 +20,25 @@ public class Student {
 	public void drinkCoffee(){
 		health+=50;
 	}
+	public void initMap(Course[] courses){
+	    for(int k=0;k<courses.length;k++){
+	        i.add(k,new ItemCourse(courses[k]));
+	        coursSuivis.put(i.get(k),0);
+	        //i.add(new ItemLab(c));
+	    }
+	    for(ItemStudy ii : i){
+	        
+	    }
+	    System.out.println(coursSuivis.get(i.get(0)));
+	}
 	
 	public void assissterAUnCours(Course cours){
-		ArrayList<ItemCourse> list = null;
-		
-		switch (cours.getName()){
-		case "SSII" : ;
-			list = coursSuivisSSII;
-			break;
-		case "POO" : 
-			list = coursSuivisPOO;
-			break;
-		}
-		
-		list.add(new ItemCourse(cours));
+		coursSuivis.put(new ItemCourse(cours),coursSuivis.get(new ItemCourse(cours)));
 		health-=10;
 	}
 	
 	public void assissterAUnTD(Course cours){
-		ArrayList<ItemLab> list = null;
-		switch (cours.getName()){
-		case "SSII" : ;
-			list = tdSuivisSSII;
-			break;
-		case "POO" : 
-			list = tdSuivisPOO;
-			break;
-	}
-		list.add(new ItemLab(cours));
+		//tdSuivis.put(cours,new ItemLab(cours));
 		health-=10;
 	}
 	
@@ -63,19 +54,20 @@ public class Student {
 		
 		switch (cours.getName()){
 		case "SSII" :
-			listCourse = coursSuivisSSII;
+			/*listCourse = coursSuivisSSII;
 			listLab = tdSuivisSSII;
 			break;
 		case "POO" : 
 			listCourse = coursSuivisPOO;
-			listLab = tdSuivisPOO;
+			listLab = tdSuivisPOO;*/
 			break;
 		}
 		
 		
 		//Si il y a au moins un td de moins que de cours dans la matiere, alors l'etudiant
 		//a deja suivi le cours pour le td et peut donc y a assisster
-		return listLab.size()<listCourse.size();  
+		//return listLab.size()<listCourse.size(); 
+		return true;
 	}
 	
 	/**
@@ -100,11 +92,11 @@ public class Student {
 	public boolean aSuiviTousLesCoursEtTD(Course cours){
 		switch (cours.getName()) {
 		case "SSII" : 
-			return coursSuivisSSII.size() >= NUMBEROFSSIICOURSES && 
-			tdSuivisSSII.size() >= NUMBEROFSSIICOURSES; 
+			//return coursSuivisSSII.size() >= NUMBEROFSSIICOURSES && 
+			//tdSuivisSSII.size() >= NUMBEROFSSIICOURSES; 
 			
-		case "POO" : return coursSuivisPOO.size() >= NUMBEROFOOPCOURSES && 
-			tdSuivisPOO.size() >= NUMBEROFOOPCOURSES;
+		//case "POO" : return coursSuivisPOO.size() >= NUMBEROFOOPCOURSES && 
+			//tdSuivisPOO.size() >= NUMBEROFOOPCOURSES;
 		}
 		
 		return false; //juste pour pouvoir compiler
@@ -119,12 +111,12 @@ public class Student {
 		
 		switch (cours.getName()){
 		case "SSII" :
-			listCourse = coursSuivisSSII;
-			listLab = tdSuivisSSII;
+			//listCourse = coursSuivisSSII;
+			//listLab = tdSuivisSSII;
 			break;
 		case "POO" : 
-			listCourse = coursSuivisPOO;
-			listLab = tdSuivisPOO;
+			//listCourse = coursSuivisPOO;
+			//listLab = tdSuivisPOO;
 			break;
 		}
 		
@@ -135,6 +127,6 @@ public class Student {
 	}
 	
 	public void printInfos(){
-		
+		System.out.println(coursSuivis.get(new ItemCourse(new Course("POO"))));
 	}
 }

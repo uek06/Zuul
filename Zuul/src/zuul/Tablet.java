@@ -4,26 +4,55 @@ import java.util.Random;
 
 public class Tablet extends Item{
 		
-	private Course theCourse;
-	private boolean jeuvideo;
+	private Course course;
+	
 
-	public Tablet(String description){
-		super(description);
-		theCourse=Game.getRandomCourse();
+	public Tablet(){
+		course=Game.getRandomCourse();
+		description = "Une tablette";
 	}
 	
 
 	
 	/**
-	 * 
 	 * @return true si la tablette est en fait pour jouer et non pas pour apprendre un cours
 	 */
-	public boolean jouerAUnJeuVideo(){
+	private boolean jouerAUnJeuVideo(){
 		Random r = new Random();
 		if (r.nextInt(10)<3) {
 			return true;
 		}
 		return false;
 	}
-	
+
+
+
+	@Override
+	public void use(Student player) {
+		if (jouerAUnJeuVideo() ){
+			System.out.println("Vous jouez a un jeu sur votre tablette");
+			if ("".equals(course.getName())){
+				System.out.println("Comme vous jouez a Zuul, vous n'oubliez rien !");
+			}
+			else {
+				System.out.println("Vous oubliez les dernieres choses faites en "+course.getName());
+				player.oublierCours(course);
+			}
+		}
+		else{
+			if ("".equals(course.getName())){
+				System.out.println("Le cours de cette tablette est trop vieux, vous n'apprenez rien ");
+			}
+			else {
+				Random r = new Random();
+				if (r.nextBoolean()){
+					player.assissterAUnCours(course);
+				}
+				else {
+					if (player.peutAssissterAUnTd(course)) player.assissterAUnTD(course);
+				}
+			}
+		}
+		
+	}
 }

@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Student {
 	private int health;
-	private ArrayList<Course> c = new ArrayList<Course>();
+	
 	private HashMap<Course, Integer> coursSuivis= new HashMap<Course,Integer>();
 	private HashMap<Course,Integer> tdSuivis= new HashMap<Course,Integer>();
 	private static final int SANTEMINPOURTEST = 60;
@@ -130,6 +130,6 @@ public class Student {
 	
 	public void printInfos(){
 	    //pour debuger pour l'instant
-	    System.out.println(coursSuivis.get(c.get(1)));
+	    //System.out.println(coursSuivis.get(c.get(1)));
 	}
 }

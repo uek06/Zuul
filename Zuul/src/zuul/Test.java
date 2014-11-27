@@ -1,28 +1,25 @@
 package zuul;
 
+import java.util.HashMap;
+
 public class Test{
 	public static void main(String args[]) {
-		///Language.initLanguage("FR");
+		Language.initLanguage("FR");
 		//System.out.println(Language.BONJOUR);
 
-		Item b = new Book("un livre");
-		/*
-		Quizz a = new Quizz(new Course("SSII"));
-		a.startQuizz();
-		a.printScore();
-		*/
+		//Corridor c = new Corridor("test");
+		//c.action(null);
 		
-		Student s = new Student();
-		Course ssii = new Course("SSII");
-		System.out.println(s.peutAssissterAUnTd(ssii));
+		//CheatSheet a = new CheatSheet(new Course("POO"));
+		//a.use();
 		
-		s.assissterAUnCours(ssii);
-		s.assissterAUnCours(ssii);
-		s.assissterAUnCours(ssii);
-		s.assissterAUnTD(ssii);
-		s.assissterAUnTD(ssii);
-		s.oublierCours(ssii);
-		System.out.println(s.aSuiviTousLesCoursEtTD(ssii));
+		//Tablet t = new Tablet();
+		//t.use(null);
 		
+		//Lunchroom l = new Lunchroom("test");
+		//l.action(null);
+		
+		Library l = new Library("test");
+		l.action(null);
 	}
 }

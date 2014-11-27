@@ -23,5 +23,10 @@ public class Question {
 			return this.answer.equals(answer);
 		}
 
+
+		public String getAnswer() {
+			return answer;
+		}
+
 		
 }

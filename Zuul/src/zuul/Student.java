@@ -5,9 +5,9 @@ import java.util.HashMap;
 
 public class Student {
 	private int health;
-	private ArrayList<ItemStudy> i = new ArrayList<ItemStudy>();
-	private HashMap<ItemStudy, Integer> coursSuivis= new HashMap<ItemStudy,Integer>();
-	private HashMap<ItemLab,Integer> tdSuivis= new HashMap<ItemLab,Integer>();
+	private ArrayList<Course> c = new ArrayList<Course>();
+	private HashMap<Course, Integer> coursSuivis= new HashMap<Course,Integer>();
+	private HashMap<Course,Integer> tdSuivis= new HashMap<Course,Integer>();
 	private static final int SANTEMINPOURTEST = 60;
 	private static final int NUMBEROFOOPCOURSES = 2;
 	private static final int NUMBEROFSSIICOURSES = 2;
@@ -16,24 +16,26 @@ public class Student {
 		health=50;
 	}
 	
+    //i.acoursSuivis.get(cours)+1dd(new ItemLab(c));
 	
 	public void drinkCoffee(){
 		health+=50;
 	}
+    //i.acoursSuivis.get(cours)+1dd(new ItemLab(c));
 	public void initMap(Course[] courses){
-	    for(int k=0;k<courses.length;k++){
-	        i.add(k,new ItemCourse(courses[k]));
-	        coursSuivis.put(i.get(k),0);
-	        //i.add(new ItemLab(c));
+	    for(Course co : courses){
+	        //c.add(co);
+	        coursSuivis.put(co,0);
+	        //i.acoursSuivis.get(cours)+1dd(new ItemLab(c));
 	    }
-	    for(ItemStudy ii : i){
+	    //for(ItemStudy ii : i){
 	        
-	    }
-	    System.out.println(coursSuivis.get(i.get(0)));
+	    //}
+	    //System.out.println(coursSuivis.get(c.get(0)));
 	}
 	
 	public void assissterAUnCours(Course cours){
-		coursSuivis.put(new ItemCourse(cours),coursSuivis.get(new ItemCourse(cours)));
+		coursSuivis.put(cours,3);
 		health-=10;
 	}
 	
@@ -127,6 +129,7 @@ public class Student {
 	}
 	
 	public void printInfos(){
-		System.out.println(coursSuivis.get(new ItemCourse(new Course("POO"))));
+	    //pour debuger pour l'instant
+	    System.out.println(coursSuivis.get(c.get(1)));
 	}
 }

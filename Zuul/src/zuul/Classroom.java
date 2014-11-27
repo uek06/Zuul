@@ -8,7 +8,7 @@ public class Classroom extends Workroom{
     
     public void action(Student s) throws InterruptedException {
         //course=Game.getRandomCourse();
-        course=new Course("SSII");
+        course=new Course("POO");
         switch(course.getName()){
         case "POO":
             System.out.println(Language.COURSACTUEL+course.getName());

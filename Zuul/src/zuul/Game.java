@@ -98,7 +98,6 @@ public class Game {
     private boolean processCommand(String w) throws InterruptedException{
         boolean wantToQuit=false;
         if (w.equals(Language.SORTIE)) wantToQuit=true;
-        //else if (w.equals("savoir")) player.printInfos();
         else{
             goRoom(w);
         }

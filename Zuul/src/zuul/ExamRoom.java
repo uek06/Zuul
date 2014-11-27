@@ -5,7 +5,5 @@ public class ExamRoom extends Workroom{
         super(description);
     }
     
-    @override 
-    
 
 }

@@ -10,11 +10,10 @@ public class Game {
     private Room currentRoom;
     private String word;
     private Student player;
-    private static final Course [] COURSES = {
-            new Course(""),
-            new Course("POO"),
-            new Course("SSII")
-    };
+    private static final Course POO=new Course("POO");
+    private static final Course SSII=new Course("SSII");
+    private static final Course VIDE=new Course("");
+    private static final Course[] COURSES = {POO,SSII,VIDE};
     
     public Game(){
         //methode qui demande la langue ?
@@ -28,18 +27,18 @@ public class Game {
     private void createRooms(){
         Room corridor1, corridor2, corridor3, corridor4, corridor5;
         Room classroom1, classroom2, lab1, lab2, examRoom, library, lunchroom;
-        corridor1=new Room(""+Language.DESCRIPTIONCOULOIR);
-        corridor2=new Room(""+Language.DESCRIPTIONCOULOIR);
-        corridor3=new Room(""+Language.DESCRIPTIONCOULOIR);
-        corridor4=new Room(""+Language.DESCRIPTIONCOULOIR);
-        corridor5=new Room(""+Language.DESCRIPTIONCOULOIR);
+        corridor1=new Corridor(""+Language.DESCRIPTIONCOULOIR);
+        corridor2=new Corridor(""+Language.DESCRIPTIONCOULOIR);
+        corridor3=new Corridor(""+Language.DESCRIPTIONCOULOIR);
+        corridor4=new Corridor(""+Language.DESCRIPTIONCOULOIR);
+        corridor5=new Corridor(""+Language.DESCRIPTIONCOULOIR);
         classroom1=new Classroom(Language.DESCRIPTIONAMPHI+"1");
-        classroom2=new Room(Language.DESCRIPTIONAMPHI+"2");
-        lab1=new Room(Language.DESCRIPTIONTD+"POO");
-        lab2=new Room(Language.DESCRIPTIONTD+"SSII");
-        examRoom=new Room(""+Language.DESCRIPTIONEXAM);
-        library=new Room(""+Language.DESCRIPTIONBIBLIO);
-        lunchroom=new Room(""+Language.DESCRIPTIONCAFET);
+        classroom2=new Classroom(Language.DESCRIPTIONAMPHI+"2");
+        lab1=new Lab(Language.DESCRIPTIONTD+"1");
+        lab2=new Lab(Language.DESCRIPTIONTD+"2");
+        examRoom=new ExamRoom(""+Language.DESCRIPTIONEXAM);
+        library=new Library(""+Language.DESCRIPTIONBIBLIO);
+        lunchroom=new Lunchroom(""+Language.DESCRIPTIONCAFET);
         
         corridor1.setExit(""+Language.OUEST,corridor4);
         corridor1.setExit(""+Language.NORD,corridor2);
@@ -98,6 +97,7 @@ public class Game {
     private boolean processCommand(String w) {
         boolean wantToQuit=false;
         if (w.equals(Language.SORTIE)) wantToQuit=true;
+        else if(w.equals("lol")) player.printInfos(POO);
         else{
             goRoom(w);
         }
@@ -109,7 +109,8 @@ public class Game {
 
         if (nextRoom == null) {
             System.out.println(Language.PASDEPORTE);
-        } else {
+        }
+        else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             currentRoom.action(player);
@@ -127,6 +128,7 @@ public class Game {
     }
     
     public static void main(String[] args){
+        System.out.println("sfsdf");
         Game test=new Game();
         test.play();
     }

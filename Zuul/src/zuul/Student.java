@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class Student {
 	private int health;
-	private ArrayList<Course> c = new ArrayList<Course>();
 	private HashMap<Course, Integer> coursSuivis= new HashMap<Course,Integer>();
 	private HashMap<Course,Integer> tdSuivis= new HashMap<Course,Integer>();
 	private static final int SANTEMINPOURTEST = 60;
@@ -16,60 +15,30 @@ public class Student {
 		health=50;
 	}
 	
-    //i.acoursSuivis.get(cours)+1dd(new ItemLab(c));
-	
 	public void drinkCoffee(){
 		health+=50;
 	}
-    //i.acoursSuivis.get(cours)+1dd(new ItemLab(c));
+	
 	public void initMap(Course[] courses){
 	    for(Course co : courses){
-	        //c.add(co);
 	        coursSuivis.put(co,0);
-	        //i.acoursSuivis.get(cours)+1dd(new ItemLab(c));
+	        tdSuivis.put(co,0);
 	    }
-	    //for(ItemStudy ii : i){
-	        
-	    //}
-	    //System.out.println(coursSuivis.get(c.get(0)));
 	}
 	
-	public void assissterAUnCours(Course cours){
-		coursSuivis.put(cours,3);
+	public void assissterAUnCoursOuTd(boolean b,Course cours){
+	    if (b) coursSuivis.put(cours,coursSuivis.get(cours)+1);
+	    else tdSuivis.put(cours,tdSuivis.get(cours)+1);
 		health-=10;
 	}
-	
-	public void assissterAUnTD(Course cours){
-		//tdSuivis.put(cours,new ItemLab(cours));
-		health-=10;
-	}
-	
+
 	/**
 	 * 
 	 * @param cours : la matiere
 	 * @return true si l'etudiant a suivi suffisament de cours avant
 	 */
 	public boolean peutAssissterAUnTd(Course cours){
-		ArrayList<ItemCourse> listCourse = null;
-		ArrayList<ItemLab> listLab = null;
-		
-		
-		switch (cours.getName()){
-		case "SSII" :
-			/*listCourse = coursSuivisSSII;
-			listLab = tdSuivisSSII;
-			break;
-		case "POO" : 
-			listCourse = coursSuivisPOO;
-			listLab = tdSuivisPOO;*/
-			break;
-		}
-		
-		
-		//Si il y a au moins un td de moins que de cours dans la matiere, alors l'etudiant
-		//a deja suivi le cours pour le td et peut donc y a assisster
-		//return listLab.size()<listCourse.size(); 
-		return true;
+		return tdSuivis.get(cours)<coursSuivis.get(cours);
 	}
 	
 	/**
@@ -108,28 +77,15 @@ public class Student {
 	 * @param cours le cours a oublier
 	 */
 	public void oublierCours(Course cours){
-		ArrayList<ItemCourse> listCourse = null;
-		ArrayList<ItemLab> listLab = null;
-		
-		switch (cours.getName()){
-		case "SSII" :
-			//listCourse = coursSuivisSSII;
-			//listLab = tdSuivisSSII;
-			break;
-		case "POO" : 
-			//listCourse = coursSuivisPOO;
-			//listLab = tdSuivisPOO;
-			break;
+		if (coursSuivis.get(cours)==tdSuivis.get(cours)){//si nbcours=nbtd
+		    tdSuivis.put(cours,tdSuivis.get(cours)-1);//alors on enlève un td
 		}
-		
-		listCourse.remove(listCourse.size()-1); //On oublie le dernier cours
-		if (listCourse.size()<listLab.size()){
-			listLab.remove(listLab.size()-1); //On oublie le dernier TD seulement 
-		}
+		coursSuivis.put(cours,coursSuivis.get(cours)-1);//dans tous les cas on enlève un cours
+        
 	}
 	
-	public void printInfos(){
+	public void printInfos(Course coo){
 	    //pour debuger pour l'instant
-	    System.out.println(coursSuivis.get(c.get(1)));
+	    System.out.println(coursSuivis.get(coo));
 	}
 }

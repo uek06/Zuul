@@ -5,24 +5,18 @@ public class Test{
 		///Language.initLanguage("FR");
 		//System.out.println(Language.BONJOUR);
 
-		Item b = new Book("un livre");
+		//Item b = new Book("un livre");
 		/*
 		Quizz a = new Quizz(new Course("SSII"));
 		a.startQuizz();
 		a.printScore();
 		*/
 		
-		Student s = new Student();
-		Course ssii = new Course("SSII");
-		System.out.println(s.peutAssissterAUnTd(ssii));
+		//Student s = new Student();
+		//Course ssii = new Course("SSII");
+		//System.out.println(s.peutAssissterAUnTd(ssii));
 		
-		s.assissterAUnCours(ssii);
-		s.assissterAUnCours(ssii);
-		s.assissterAUnCours(ssii);
-		s.assissterAUnTD(ssii);
-		s.assissterAUnTD(ssii);
-		s.oublierCours(ssii);
-		System.out.println(s.aSuiviTousLesCoursEtTD(ssii));
+
 		
 	}
 }

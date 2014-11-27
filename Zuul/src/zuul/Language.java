@@ -45,6 +45,7 @@ public enum Language {
         DESCRIPTIONBIBLIO(""),
         DESCRIPTIONCAFET(""),
 		ERRORHEALTH(""),
+		ERREURPASASSEZDECOURS(""),
 		VOUSAVEZASSISSTERA("");
 
 		String str;
@@ -137,7 +138,8 @@ public enum Language {
 			"dans la bibliothèque",
 			"dans la caféteria",
 			"Vous n'avez pas assez d'énergie pour prendre part à cet examen",
-			"Vous avez assister"
+			"Vous n'avez pas suivi assez de cours dans cette matiere pour pouvoir suivre le TD !",
+			"Vous avez assiste"
 		};
 
 		private final static String [] en ={

@@ -78,7 +78,7 @@ public class Game {
         currentRoom=corridor1;
     }
 
-    public void play() throws InterruptedException{
+    public void play() {
         printWelcome();
         boolean finished = false;
         while (!finished) {
@@ -95,7 +95,7 @@ public class Game {
         System.out.println(currentRoom.getExitString());
     }
     
-    private boolean processCommand(String w) throws InterruptedException{
+    private boolean processCommand(String w) {
         boolean wantToQuit=false;
         if (w.equals(Language.SORTIE)) wantToQuit=true;
         else{
@@ -103,7 +103,7 @@ public class Game {
         }
         return wantToQuit;
     }
-    private void goRoom(String direction) throws InterruptedException {
+    private void goRoom(String direction) {
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
 
@@ -126,7 +126,7 @@ public class Game {
         return COURSES[r.nextInt(COURSES.length)];
     }
     
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args){
         Game test=new Game();
         test.play();
     }

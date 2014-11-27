@@ -1,12 +1,12 @@
 package zuul;
 
 public class Classroom extends Workroom{
-    private String choix;
+    
     public Classroom(String description) {
         super(description);
     }
-    
-    public void action(Student s) throws InterruptedException {
+    /*
+    public void action(Student s) {
         //course=Game.getRandomCourse();
         course=new Course("SSII");
         switch(course.getName()){
@@ -35,10 +35,15 @@ public class Classroom extends Workroom{
         }
         
     }
-    
-    public void displayCourse(Student s) throws InterruptedException{
+    */
+    /*
+    public void displayCourse(Student s) {
         for (int i = 0; i < 6; i++) {
-            Thread.sleep(1000);
+            try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
             System.out.print(".");
         }
         System.out.println("\n"+Language.COURSFINI);
@@ -46,5 +51,5 @@ public class Classroom extends Workroom{
         s.assissterAUnCours(course);
         
     }
-
+*/
 }

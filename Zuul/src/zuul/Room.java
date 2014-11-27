@@ -91,7 +91,7 @@ public class Room
         return exits.get(direction);
     }
 
-    public void action(Student player) throws InterruptedException {
+    public void action(Student player)  {
         // TODO Stub de la méthode généré automatiquement
         
     }

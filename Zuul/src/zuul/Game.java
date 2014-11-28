@@ -33,8 +33,11 @@ public class Game {
     }
     
     private void initQuestions(){
-        POO.addQuestion(""+Language.QUIZZOOPQUESTION1,true);
-        //...
+        POO.addQuestion(""+Language.QUIZZOOPQUESTION1,false);
+        POO.addQuestion(""+Language.QUIZZOOPQUESTION2,true);
+        POO.addQuestion(""+Language.QUIZZOOPQUESTION3,true);
+        SSII.addQuestion(""+Language.QUIZZSSIIQUESTION1, true);
+        SSII.addQuestion(""+Language.QUIZZSSIIQUESTION2, true);
         
     }
     
@@ -142,7 +145,8 @@ public class Game {
     }
     
     public static void finish(){
-        finished=true;
+        System.out.println("Vous avez gagné ! Merci d'avoir joué");
+    	System.exit(0);
     }
     public static void main(String[] args){
         Game test=new Game();

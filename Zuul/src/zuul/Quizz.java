@@ -1,6 +1,7 @@
 package zuul;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class Quizz {
 		
@@ -29,8 +30,7 @@ public class Quizz {
 		* @param Question q : la question à afficher
 		*/
 		public void printQuestion(Question q){
-			System.out.println("\n"+Language.QUIZZQUESTIONSUIVANTE.toString()+"\n");
-			System.out.println(q+"\n");
+			System.out.println("-"+q+"\n");
 			System.out.print(Language.QUIZZVOTRECHOIX);
 
 		}
@@ -42,7 +42,16 @@ public class Quizz {
 			printWelcome();
 			for (Question q: questions){
 				printQuestion(q);
-				if (q.goodAnswer(WordReader.getBoolean())) points++;
+				while (true)
+					try {
+						boolean b = WordReader.getBoolean();
+						if (q.goodAnswer(b)) points++;
+						break;
+					}
+				catch (InputMismatchException e){
+					
+				}
+			
 			}
 		}
 		

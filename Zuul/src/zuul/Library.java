@@ -28,33 +28,39 @@ public class Library extends Room{
     
     
     private void displayBooks(){
-    	System.out.println("Voici les livres disponibles :");
-    	for (Book b : theBooks){
-    		System.out.println(b);
+    	System.out.println("Voici les livres disponibles : ");
+    	for (int i=0;i<theBooks.length;i++){
+    		System.out.println(i+1+") "+theBooks[i]);
     	}
     }
     
     private void proposeToReadBook(Student player){
-    	System.out.println("Pour lire un livre tapez son nom, tapez quit pour quitter");
-    	String word = WordReader.getWord();
-    	while (!"quit".equals(word)){
-    		Book b = getBook(word);
+    	System.out.println("Pour lire un livre tapez son numéro, tapez 0 pour quitter");
+    	int number = WordReader.getInt();
+    	while (0!=number){
+    		Book b = getBook(number);
     		if (b!=null){
     			b.use(player);
     		}
     		else {
     			System.out.println("Ce livre n'est pas dans la bibliotheque !");
     		}
-    		word = WordReader.getWord();
+    		number = WordReader.getInt();
     	}
     }
     
-    private Book getBook(String title){
-    	for (Book b : theBooks) {
-    		if (b.toString().equals(title)) {
-    			return b;
-    		}
+    
+    
+    private Book getBook(int number){
+    	try {
+    		return theBooks[number-1];
     	}
-    	return null;
+    	
+    	catch (ArrayIndexOutOfBoundsException e){
+    		return null;
+    	}	
+    	
     }
+  
+    
 }

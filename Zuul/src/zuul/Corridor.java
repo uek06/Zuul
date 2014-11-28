@@ -13,7 +13,7 @@ public class Corridor extends Room{
     }
 
 	public void action(Student player)  {
-		
+		objectsInTheCorridor.clear();
 		putItemsInTheCorridorRandomly();
 		
         Random r = new Random();

@@ -15,15 +15,19 @@ public class WordReader {
 		return word;
 	}
 
-	public static boolean getBoolean() {
-		while (true) {
-			try {
-				boolean b = sc.nextBoolean();
-				return b;
-			} catch (InputMismatchException e) {
-				System.out.println("Erreur de saisie");
-			}
+	public static boolean getBoolean() throws InputMismatchException{
+			sc = new Scanner(System.in);
+			return sc.nextBoolean();
+	}
 
+	
+	public static int getInt() {
+		try {
+			sc = new Scanner(System.in);
+			int i = sc.nextInt();
+			return i;
+		} catch (InputMismatchException e) {
+			return -1;
 		}
 	}
 

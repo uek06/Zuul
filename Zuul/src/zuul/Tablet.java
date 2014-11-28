@@ -42,8 +42,9 @@ public class Tablet extends Item {
 							+ Language.TD + course.getName());
 					player.assissterAUnCoursOuTd(false, course);
 				} else {
-					System.out.println(Language.OHMINCE);
-				}
+					System.out.println(Language.VOUSAVEZTROUVETD+course.getName());
+					System.out.println(Language.ERREURPASASSEZDECOURS);
+					}
 			}
 		}
 

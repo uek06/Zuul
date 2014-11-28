@@ -11,8 +11,8 @@ public class Game {
     private String word;
     private Student player;
     private static boolean finished=false;
-    private static final Course POO=new Course("POO",true,2);
-    private static final Course SSII=new Course("SSII",false,2);
+    private static final Course POO=new Course("POO",true,0);
+    private static final Course SSII=new Course("SSII",false,0);
     public static final Course[] COURSES = {POO,SSII};
     
     public Game(){
@@ -26,8 +26,11 @@ public class Game {
     }
     
     private void initQuestions(){
-        POO.addQuestion(""+Language.QUIZZOOPQUESTION1,true);
-        //...
+        POO.addQuestion(""+Language.QUIZZOOPQUESTION1,false);
+        POO.addQuestion(""+Language.QUIZZOOPQUESTION2,true);
+        POO.addQuestion(""+Language.QUIZZOOPQUESTION3,true);
+        SSII.addQuestion(""+Language.QUIZZSSIIQUESTION1, true);
+        SSII.addQuestion(""+Language.QUIZZSSIIQUESTION2, true);
         
     }
     
@@ -135,7 +138,8 @@ public class Game {
     }
     
     public static void finish(){
-        finished=true;
+        System.out.println("Vous avez gagné ! Merci d'avoir joué");
+    	System.exit(0);
     }
     public static void main(String[] args){
         Game test=new Game();

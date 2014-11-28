@@ -16,7 +16,7 @@ public class Student {
 	}
 
 	public Student(){
-		health=50;
+		health=60;
 	}
 	
    

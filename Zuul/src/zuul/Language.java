@@ -30,18 +30,12 @@ public enum Language {
 		VOTREENERGIE(""),
 		SUIVI(""),
 		QUIZZBIENVENUE(""),
-		QUIZZQUESTIONSUIVANTE(""),
 		QUIZZVOTRECHOIX(""),
 		QUIZZOOPQUESTION1(""),
 		QUIZZOOPQUESTION2(""),
 		QUIZZOOPQUESTION3(""),
-		QUIZZOOPREPONSE1(""),
-		QUIZZOOPREPONSE2(""),
-		QUIZZOOPREPONSE3(""),
 		QUIZZSSIIQUESTION1(""),
 		QUIZZSSIIQUESTION2(""),
-		QUIZZSSIIREPONSE1(""),
-		QUIZZSSIIREPONSE2(""),
 		QUIZZVOTRESCOREESTDE(""),
 		DESCRIPTIONHALL(""),
 		DESCRIPTIONCOULOIR(""),
@@ -53,7 +47,7 @@ public enum Language {
 		ERRORHEALTH(""),
 		ERREURPASASSEZDECOURS(""),
 		VOUSAVEZASSISSTERA(""),
-		OHMINCE("");
+		VOUSAVEZTROUVETD("");
 
 		String str;
 		
@@ -129,19 +123,14 @@ public enum Language {
 			"Félicitations vous venez de récupérer un item",
 			"Votre énergie est de ",
 			"Vous avez suivi :",
-			"L'examen va commencer. Pour réussir vous devez avoir au moins 50% des réponses justes\n",
-			"Question suivante :",
+			"L'examen va commencer. Pour réussir vous devez avoir au moins 50% des réponses justes\n" +
+			"Répondez true ou false",
 			"Votre choix : ",
-			"Qui détient et maintient java depuis 2009? ikea, oracle ou mcdonald ?",
-			"Quelle est la mascotte de Java? duke, tux ou mario?",
-			"Ce projet est-il exceptionnel? (oui,non)",
-			"oracle",
-			"duke",
-			"oui",
-			"Est ce que ce cours est pourri? (oui,non)",
-			"Quelle est la meilleure chose à faire pendant ce cours? (attendrecorrection,trackmania)",
-			"oui",
-			"trackmania",
+			"Le professeur de POO s'appelle Mr Stromboni? ",
+			"Est ce que la mascotte de Java s'appelle duke? ",
+			"Les méthodes d'une interface sont-elles publiques? ",
+			"La condition de Shannon stipule-t-elle que fe>2fo? ",
+			"Suréchantillonner un signal rajoute-il des points? ",
 			"Votre score est de ",
 			"dans le hall",
 			"dans le couloir",
@@ -153,7 +142,8 @@ public enum Language {
 			"Vous n'avez pas assez d'énergie pour prendre part à cet examen",
 			"Vous n'avez pas suivi assez de cours dans cette matiere pour pouvoir suivre le TD !",
 			"Vous avez assiste",
-			"oh mince"
+			"Vous avez trouvé un td de "
+			
 		};
 
 		private final static String [] en ={

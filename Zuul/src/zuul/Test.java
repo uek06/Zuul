@@ -7,5 +7,7 @@ public class Test{
 		Language.initLanguage("FR");
 		//System.out.println(Language.BONJOUR);
 
+		Quizz q = new Quizz(Game.POO)
+		
 	}
 }

@@ -39,12 +39,12 @@ public abstract class Workroom extends Room {
 	}
 
 	public void caseCours(Student s) {
-		switch (course.getName()) {
-		case "POO":
+		
+		if (course.isCompulsory()) {
 			System.out.println(Language.VOUSDEVEZASSISTER);
 			displayCourse(s);
-			break;
-		case "SSII":
+		}
+		else {
 			System.out.println(Language.VOULEZVOUSYASSISTER);
 			while (true) {
 				choix = WordReader.getWord();
@@ -57,7 +57,6 @@ public abstract class Workroom extends Room {
 				} else
 					System.out.println(Language.VEUILLEZSAISIR);
 			}
-			break;
 		}
 	}
 

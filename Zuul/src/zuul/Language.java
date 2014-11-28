@@ -52,7 +52,8 @@ public enum Language {
         DESCRIPTIONCAFET(""),
 		ERRORHEALTH(""),
 		ERREURPASASSEZDECOURS(""),
-		VOUSAVEZASSISSTERA("");
+		VOUSAVEZASSISSTERA(""),
+		OHMINCE("");
 
 		String str;
 		

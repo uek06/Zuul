@@ -15,7 +15,7 @@ public class ExamRoom extends Workroom {
 			System.out.println(Language.PASCOURS);
 		} 
     	else {
-    		System.out.println(Language.ACTUELLEMENT+" examen"+Language.DE+course.getName());
+    		System.out.println(Language.ACTUELLEMENT+" examen "+Language.DE+course.getName());
     		if (!(s.aSuiviTousLesCoursEtTD(course) || (s.getLivrePOOLu() && "POO".equals(course.getName())))) {
     	
 				System.out.println("Vous n'avez pas suivi suffisament de cours et de TD de "+course.getName());

@@ -1,34 +1,11 @@
 package zuul;
 
+import java.util.ArrayList;
+
 public class Quizz {
 		
 		private int points;
-		private Question [] theQuestions;
-
-
-		private final static Question [] oopQuestions = {
-			new Question(Language.QUIZZOOPQUESTION1.toString(),Language.QUIZZOOPREPONSE1.toString()),
-			new Question(Language.QUIZZOOPQUESTION2.toString(),Language.QUIZZOOPREPONSE2.toString()),
-			new Question(Language.QUIZZOOPQUESTION3.toString(),Language.QUIZZOOPREPONSE3.toString()),
-		};	
-
-		
-
-		private final static Question [] ssiiQuestions = {
-				new Question(Language.QUIZZSSIIQUESTION1.toString(),Language.QUIZZSSIIREPONSE1.toString()),
-				new Question(Language.QUIZZSSIIQUESTION2.toString(),Language.QUIZZSSIIREPONSE2.toString()),
-		};	
-		
-		
-		public Question[] getTheQuestions() {
-			return theQuestions;
-		}
-
-
-		public void setTheQuestions(Question[] theQuestions) {
-			this.theQuestions = theQuestions;
-		}
-
+		private ArrayList<Question> questions;
 
 /**
  * Cree un quizz et charge le tableau des questions selon la matiere donnee en parametre 
@@ -36,12 +13,7 @@ public class Quizz {
  */
 		public Quizz(Course c){
 			points=0;
-			
-			switch (c.getName()){
-				case "OOP" : theQuestions = oopQuestions;break;
-				case "SSII" : theQuestions = ssiiQuestions;break;
-				default : theQuestions = oopQuestions;break;
-			}
+			questions = c.getQuestions();
 		}
 
 
@@ -68,11 +40,9 @@ public class Quizz {
 		*/
 		public void startQuizz(){
 			printWelcome();
-
-			for (int i=0;i<theQuestions.length;i++){
-				Question currentQuestion = theQuestions[i];
-				printQuestion(currentQuestion);
-				if (currentQuestion.goodAnswer(WordReader.getWord())) points++;
+			for (Question q: questions){
+				printQuestion(q);
+				if (q.goodAnswer(WordReader.getBoolean())) points++;
 			}
 		}
 		
@@ -80,13 +50,13 @@ public class Quizz {
 		* Renvoie true si l'utilisateur a répondu juste à au moins 50% des questions du quizz
 		*/
 		public boolean isPassed(){
-			return points>=(float)theQuestions.length/2;
+			return points>=(float)questions.size()/2;
 		}
 
 	/**
 	 * Affiche le score qu'a obtenu l'utilisateur au quizz
 	 */
 		public void printScore(){
-			System.out.println(Language.QUIZZVOTRESCOREESTDE+" "+points+"/"+theQuestions.length);
+			System.out.println(Language.QUIZZVOTRESCOREESTDE+" "+points+"/"+questions.size());
 		}
 }

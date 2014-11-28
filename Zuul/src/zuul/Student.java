@@ -8,10 +8,14 @@ public class Student {
 	
 	private HashMap<Course, Integer> coursSuivis= new HashMap<Course,Integer>();
 	private HashMap<Course,Integer> tdSuivis= new HashMap<Course,Integer>();
-	private static final int SANTEMINPOURTEST = 60;
+	public static final int SANTEMINPOURTEST = 60;
 	private static final int NUMBEROFOOPCOURSES = 2;
 	private static final int NUMBEROFSSIICOURSES = 2;
 	
+	public int getHealth() {
+		return health;
+	}
+
 	public Student(){
 		health=50;
 	}
@@ -92,7 +96,7 @@ public class Student {
 	
 	
 	public boolean aSuiviTousLesCoursEtTD(Course cours){
-		switch (cours.getName()) {
+		/*switch (cours.getName()) {
 		case "SSII" : 
 			//return coursSuivisSSII.size() >= NUMBEROFSSIICOURSES && 
 			//tdSuivisSSII.size() >= NUMBEROFSSIICOURSES; 
@@ -102,6 +106,8 @@ public class Student {
 		}
 		
 		return false; //juste pour pouvoir compiler
+		*/
+		return true;
 	}
 	/**
 	 * Fait oublier a l'etudiant le dernier cours et le dernier TD correspondant a ce cours sauf s'il avait un cours d'avance

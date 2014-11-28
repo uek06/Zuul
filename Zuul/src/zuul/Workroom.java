@@ -14,7 +14,17 @@ public abstract class Workroom extends Room {
 		// course=new Course("SSII");
 		if (this instanceof Lab && !s.peutAssissterAUnTd(course)) {
 			System.out.println(Language.ERREURPASASSEZDECOURS);
-		} else {
+		} 
+		
+		else if (this instanceof ExamRoom && !s.aSuiviTousLesCoursEtTD(course)) {
+			System.out.println("Vous n'avez pas assiste a tous les cours et tous les TD !");
+		} 
+		else if (this instanceof ExamRoom && !s.santeMiniPourParticiperAUnExam()){
+			System.out.println("Pas assez de sante pour participer a l'examen " +
+						"Votre sante est de "+s.getHealth()+"\nLe M" +
+								"inimum requis est de "+s.SANTEMINPOURTEST);
+		}
+		else {
 			switch (course.getName()) {
 			case "POO":
 				System.out.println(Language.COURSACTUEL + course.getName());

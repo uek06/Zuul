@@ -6,5 +6,9 @@ public class ExamRoom extends Workroom{
     }
     
     
-
+    public void displayCourse(Student s) {
+    	Quizz q = new Quizz(course);
+    	q.startQuizz();
+    	q.printScore();
+    }
 }

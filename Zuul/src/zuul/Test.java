@@ -19,7 +19,13 @@ public class Test{
 		//Lunchroom l = new Lunchroom("test");
 		//l.action(null);
 		
-		Library l = new Library("test");
-		l.action(null);
+		//Library l = new Library("test");
+		//l.action(null);
+		
+		Student s = new Student();
+		s.drinkCoffee();
+		ExamRoom e = new ExamRoom("test");
+		e.action(s);
+		
 	}
 }

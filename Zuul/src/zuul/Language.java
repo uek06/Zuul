@@ -112,7 +112,7 @@ public enum Language {
 			"Cela ne mène à rien...",
 			"Vous êtes ",
 			"Directions possibles :",
-			"Il y a actuellement cours ",
+			"Il y a actuellement",
 			"de ",
 			"Vous devez y assister et attendre la fin",
 			"Voulez-vous assister au cours ? (oui ou non)",

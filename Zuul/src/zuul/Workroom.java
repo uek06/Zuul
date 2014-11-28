@@ -18,27 +18,27 @@ public abstract class Workroom extends Room {
 		if ("".equals(course.getName())) {
 			System.out.println(Language.PASCOURS);
 		} else {
-
+		    
 			if (this instanceof Lab) {
-				if (!course.getName().equals("")
-						&& !s.peutAssissterAUnTd(course))
-					System.out.println(Language.ERREURPASASSEZDECOURS);
-				else {
-					coursOuTd = "" + Language.TD;
-					estUnCours = false;
-					caseCours(s);
-				}
-			} else {// c'est donc un cours
-				coursOuTd = "" + Language.COURS;
-				estUnCours = true;
-				caseCours(s);
+			    coursOuTd = "" + Language.TD;
+                estUnCours = false;
+			}
+			else{
+			    coursOuTd = "" + Language.COURS;
+                estUnCours = true;
+			}
+			System.out.println(Language.ACTUELLEMENT + coursOuTd + Language.DE
+                    + course.getName());
+			if (estUnCours || (!estUnCours && s.peutAssissterAUnTd(course)))
+				    caseCours(s);
+			else {
+			    System.out.println(Language.ERREURPASASSEZDECOURS);
 			}
 		}
 	}
 
 	public void caseCours(Student s) {
-		System.out.println(Language.ACTUELLEMENT + coursOuTd + Language.DE
-				+ course.getName());
+		
 		switch (course.getName()) {
 		case "POO":
 			System.out.println(Language.VOUSDEVEZASSISTER);

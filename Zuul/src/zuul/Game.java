@@ -10,9 +10,9 @@ public class Game {
     private Room currentRoom;
     private String word;
     private Student player;
-    private static final Course POO=new Course("POO");
-    private static final Course SSII=new Course("SSII");
-    private static final Course VIDE=new Course("");
+    private static final Course POO=new Course("POO",true,2);
+    private static final Course SSII=new Course("SSII",false,2);
+    private static final Course VIDE=new Course("",false,0);
     private static final Course[] COURSES = {POO,SSII,VIDE};
     
     public Game(){

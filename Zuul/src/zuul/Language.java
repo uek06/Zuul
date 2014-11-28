@@ -53,6 +53,8 @@ public enum Language {
 		ERRORHEALTH(""),
 		ERREURPASASSEZDECOURS(""),
 		VOUSAVEZASSISSTERA(""),
+		VOTREENERGIEADIMINUE(""),
+		VOTREENERGIEAAUGMENTE(""),
 		OHMINCE("");
 
 		String str;
@@ -153,6 +155,8 @@ public enum Language {
 			"Vous n'avez pas assez d'énergie pour prendre part à cet examen",
 			"Vous n'avez pas suivi assez de cours dans cette matiere pour pouvoir suivre le TD !",
 			"Vous avez assiste",
+			"Votre énergie a diminué de ",
+			"Votre énergie a augmenté de ",
 			"oh mince"
 		};
 

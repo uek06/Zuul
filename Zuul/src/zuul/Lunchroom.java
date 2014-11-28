@@ -16,19 +16,18 @@ public class Lunchroom extends Room{
     		playBabyFoot(player);
     	}
     	
-    	System.out.print("Voulez vous prendre un cafe ? (oui,non)");
+    	System.out.println("Voulez vous prendre un cafe ? (oui,non)");
     	if (WordReader.getWord().equals("oui")){
-    		player.drinkCoffee();
+    		new Coffee().use(player);
     	}
-    	
-    
     }
     
     private void playBabyFoot(Student player){
-    	Course c = Game.getRandomCourse();
-		if (!"".equals(c.getName())) {
-			System.out.println("Vous jouez au babyfoot et oubliez un cours de "+c.getName());
-			player.oublierCours(c);
+        System.out.println("Vous jouez au babyfoot ");
+        Course c = Game.getRandomCourse();
+        if(player.peutOublierCours(c)){
+            System.out.print("et oubliez un cours de "+c.getName());
+		    player.oublierCours(c);
 		}
     }
 }

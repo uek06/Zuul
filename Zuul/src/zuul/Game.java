@@ -13,8 +13,15 @@ public class Game {
     private static boolean finished=false;
     private static final Course POO=new Course("POO",true,2);
     private static final Course SSII=new Course("SSII",false,2);
-    public static final Course[] COURSES = {POO,SSII};
+    private static final Course[] COURSES = {POO,SSII};
     
+    /**
+     * @return le courses
+     */
+    public static Course[] getCourses() {
+        return COURSES;
+    }
+
     public Game(){
         //methode qui demande la langue ?
         Language.initLanguage("FR");

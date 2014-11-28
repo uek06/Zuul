@@ -17,7 +17,7 @@ public abstract class Workroom extends Room {
 		
 		Random rand=new Random();
 		//1 chance sur le nombre de matières pour qu'il n'y ait pas cours
-		if(rand.nextInt(Game.COURSES.length+1)==1) System.out.println(Language.PASCOURS);
+		if(rand.nextInt(Game.getCourses().length+1)==1) System.out.println(Language.PASCOURS);
 		else {
 		    course = Game.getRandomCourse();
 			if (this instanceof Lab) {

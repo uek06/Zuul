@@ -4,6 +4,8 @@ public abstract class Workroom extends Room {
 
 	protected Course course;
 	protected String choix;
+	private boolean estUnCours;
+	private String coursOuTd;
 
 	public Workroom(String description) {
 		super(description);
@@ -11,44 +13,51 @@ public abstract class Workroom extends Room {
 
 	public void action(Student s) {
 		course = Game.getRandomCourse();
-		// course=new Course("SSII");
-		if (this instanceof Lab && !s.peutAssissterAUnTd(course)) {
-			System.out.println(Language.ERREURPASASSEZDECOURS);
-		} 
-		
-		else if (this instanceof ExamRoom && !s.aSuiviTousLesCoursEtTD(course)) {
-			System.out.println("Vous n'avez pas assiste a tous les cours et tous les TD !");
-		} 
-		else if (this instanceof ExamRoom && !s.santeMiniPourParticiperAUnExam()){
-			System.out.println("Pas assez de sante pour participer a l'examen " +
-						"Votre sante est de "+s.getHealth()+"\nLe M" +
-								"inimum requis est de "+s.SANTEMINPOURTEST);
-		}
-		else {
-			switch (course.getName()) {
-			case "POO":
-				System.out.println(Language.COURSACTUEL + course.getName());
-				System.out.println(Language.VOUSDEVEZASSISTER);
-				displayCourse(s);
-				break;
-			case "SSII":
-				System.out.println(Language.COURSACTUEL + course.getName());
-				System.out.println(Language.VOULEZVOUSASSISTER);
-				while (true) {
-					choix = WordReader.getWord();
-					if (choix.equals("" + Language.OUI)) {
-						displayCourse(s);
-						break;
-					} else if (choix.equals("" + Language.NON)) {
-						System.out.println(Language.REVENEZPLUSTARD);
-						break;
-					} else
-						System.out.println(Language.VEUILLEZSAISIR);
+		// course=new Course("POO");
+
+		if ("".equals(course.getName())) {
+			System.out.println(Language.PASCOURS);
+		} else {
+
+			if (this instanceof Lab) {
+				if (!course.getName().equals("")
+						&& !s.peutAssissterAUnTd(course))
+					System.out.println(Language.ERREURPASASSEZDECOURS);
+				else {
+					coursOuTd = "" + Language.TD;
+					estUnCours = false;
+					caseCours(s);
 				}
-				break;
-			default:
-				System.out.println(Language.PASCOURS);
+			} else {// c'est donc un cours
+				coursOuTd = "" + Language.COURS;
+				estUnCours = true;
+				caseCours(s);
 			}
+		}
+	}
+
+	public void caseCours(Student s) {
+		System.out.println(Language.ACTUELLEMENT + coursOuTd + Language.DE
+				+ course.getName());
+		switch (course.getName()) {
+		case "POO":
+			System.out.println(Language.VOUSDEVEZASSISTER);
+			displayCourse(s);
+			break;
+		case "SSII":
+			System.out.println(Language.VOULEZVOUSASSISTER);
+			while (true) {
+				choix = WordReader.getWord();
+				if (choix.equals("" + Language.OUI)) {
+					displayCourse(s);
+					break;
+				} else if (choix.equals("" + Language.NON)) {
+					System.out.println(Language.REVENEZPLUSTARD);
+					break;
+				} else
+					System.out.println(Language.VEUILLEZSAISIR);
+			}
+			break;
 		}
 	}
 
@@ -61,11 +70,10 @@ public abstract class Workroom extends Room {
 			}
 			System.out.print(".");
 		}
-		System.out.println("\n" + Language.COURSFINI);
-		System.out
-				.println(Language.FELICITATIONSITEM + course.getName() + " !");
-		s.assissterAUnCours(course);
-
+		System.out.println("\n" + Language.LE + coursOuTd + Language.FINI);
+		System.out.println(Language.FELICITATIONSITEM + coursOuTd
+				+ course.getName() + " !");
+		s.assissterAUnCoursOuTd(estUnCours, course);
 	}
 
 }

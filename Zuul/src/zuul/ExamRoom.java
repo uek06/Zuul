@@ -5,10 +5,4 @@ public class ExamRoom extends Workroom{
         super(description);
     }
     
-    
-    public void displayCourse(Student s) {
-    	Quizz q = new Quizz(course);
-    	q.startQuizz();
-    	q.printScore();
-    }
 }

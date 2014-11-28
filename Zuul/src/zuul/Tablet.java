@@ -46,10 +46,10 @@ public class Tablet extends Item{
 			else {
 				Random r = new Random();
 				if (r.nextBoolean()){
-					player.assissterAUnCours(course);
+					player.assissterAUnCoursOuTd(true,course);
 				}
 				else {
-					if (player.peutAssissterAUnTd(course)) player.assissterAUnTD(course);
+					if (player.peutAssissterAUnTd(course)) player.assissterAUnCoursOuTd(false,course);
 				}
 			}
 		}

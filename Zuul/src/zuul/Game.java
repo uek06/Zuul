@@ -10,10 +10,10 @@ public class Game {
     private Room currentRoom;
     private String word;
     private Student player;
-    boolean finished=false;
-    private static final Course POO=new Course("POO");
-    private static final Course SSII=new Course("SSII");
-    private static final Course VIDE=new Course("");
+    private static boolean finished=false;
+    private static final Course POO=new Course("POO",true,2);
+    private static final Course SSII=new Course("SSII",false,2);
+    private static final Course VIDE=new Course("",false,0);
     private static final Course[] COURSES = {POO,SSII,VIDE};
     
     public Game(){
@@ -128,7 +128,7 @@ public class Game {
         return COURSES[r.nextInt(COURSES.length)];
     }
     
-    public void finish(){
+    public static void finish(){
         finished=true;
     }
     public static void main(String[] args){

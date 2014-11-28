@@ -6,9 +6,13 @@ package zuul;
  */
 public class Course {
     private String name;
+    private boolean isCompulsory;
+    private int nombreMiniCoursExam;
     
-    public Course(String name){
+    public Course(String name,boolean isCompulsory,int nombreMiniCoursExam){
         this.name=name;
+        this.isCompulsory=isCompulsory;
+        this.nombreMiniCoursExam=nombreMiniCoursExam;
     }
 
 	public String getName() {
@@ -26,6 +30,14 @@ public class Course {
 		// Gain access to the other student’s fields.
 		Course other = (Course) obj;
 		return name.equals(other.getName());
+	}
+
+	public boolean isCompulsory() {
+		return isCompulsory;
+	}
+
+	public int getNbMiniCoursExam() {
+		return nombreMiniCoursExam;
 	}
 	
 }

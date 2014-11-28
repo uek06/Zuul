@@ -19,7 +19,7 @@ public abstract class Workroom extends Room {
             System.out.println(Language.COURSACTUEL + course.getName());
             break;
         case "SSII":
-            System.out.println(Language.TDACTUEL + course.getName());
+            System.out.println(Language.COURSACTUEL + course.getName());
             break;
         default:
             System.out.println(Language.PASCOURS);

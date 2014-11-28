@@ -138,7 +138,6 @@ public class Game {
         finished=true;
     }
     public static void main(String[] args){
-        System.out.println("sfsdf");
         Game test=new Game();
         test.play();
     }

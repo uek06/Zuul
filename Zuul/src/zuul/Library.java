@@ -28,7 +28,7 @@ public class Library extends Room{
     
     
     private void displayBooks(){
-    	System.out.println("Voici les livres disponibles : \n");
+    	System.out.println("Voici les livres disponibles :");
     	for (Book b : theBooks){
     		System.out.println(b);
     	}

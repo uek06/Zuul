@@ -152,7 +152,8 @@ public enum Language {
 			"dans la caféteria",
 			"Vous n'avez pas assez d'énergie pour prendre part à cet examen",
 			"Vous n'avez pas suivi assez de cours dans cette matiere pour pouvoir suivre le TD !",
-			"Vous avez assiste"
+			"Vous avez assiste",
+			"oh mince"
 		};
 
 		private final static String [] en ={

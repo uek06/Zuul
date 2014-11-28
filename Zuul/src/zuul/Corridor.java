@@ -22,7 +22,7 @@ public class Corridor extends Room{
         	listItemsInTheCorridor(player);
         }
         else {
-        	System.out.println("Le couloir est eteint. Voulez vous l'allumer?(oui,non)");
+        	System.out.println("Le couloir est eteint. Voulez vous l'allumer ? (oui, non)");
         	if (WordReader.getWord().equals("oui")) {
         		System.out.println("Vous allumez le couloir");
         	
@@ -45,11 +45,11 @@ public class Corridor extends Room{
 	private void listItemsInTheCorridor(Student player) {
 
 		if (!objectsInTheCorridor.isEmpty()) {
-			System.out.println("Il y a des objets dans le couloir : \n");
+			System.out.println("Il y a des objets dans le couloir :");
 		}
 		for (Item i : objectsInTheCorridor) {
 			System.out.println(i.getDescription());
-			System.out.print("Voulez vous l'utiliser? (oui,non)");
+			System.out.println("Voulez vous l'utiliser ? (oui,non)");
 			if (WordReader.getWord().equals("oui")) i.use(player);
 		}
 	}

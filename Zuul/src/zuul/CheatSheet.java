@@ -1,12 +1,14 @@
 package zuul;
 
+import java.util.ArrayList;
+
 public class CheatSheet extends Item {
-	private Question[] theAnswers;
+	private ArrayList<Question> questions;
 	private Course course;
 
-	public CheatSheet(Course c) {
-		course = c;
-		theAnswers = c.getQuestions();
+	public CheatSheet(Course course) {
+		this.course = course;
+		questions = course.getQuestions();
 		description = "Une feuille de triche ";
 	}
 
@@ -18,7 +20,7 @@ public class CheatSheet extends Item {
 	public void use(Student player) {
 		System.out.println("Voici les reponses aux questions de l'examen de :"
 				+ course.getName() + "\n");
-		for (Question q : theAnswers) {
+		for (Question q : questions) {
 			System.out.println(q + "\n" + "REPONSE :" + q.getAnswer() + "\n");
 		}
 

@@ -6,17 +6,30 @@ public class Quizz {
 		private Question [] theQuestions;
 
 
-		private final Question [] oopQuestions = {
+		private final static Question [] oopQuestions = {
 			new Question(Language.QUIZZOOPQUESTION1.toString(),Language.QUIZZOOPREPONSE1.toString()),
 			new Question(Language.QUIZZOOPQUESTION2.toString(),Language.QUIZZOOPREPONSE2.toString()),
 			new Question(Language.QUIZZOOPQUESTION3.toString(),Language.QUIZZOOPREPONSE3.toString()),
 		};	
 
-		private final Question [] ssiiQuestions = {
+		
+
+		private final static Question [] ssiiQuestions = {
 				new Question(Language.QUIZZSSIIQUESTION1.toString(),Language.QUIZZSSIIREPONSE1.toString()),
 				new Question(Language.QUIZZSSIIQUESTION2.toString(),Language.QUIZZSSIIREPONSE2.toString()),
 		};	
 		
+		
+		public Question[] getTheQuestions() {
+			return theQuestions;
+		}
+
+
+		public void setTheQuestions(Question[] theQuestions) {
+			this.theQuestions = theQuestions;
+		}
+
+
 /**
  * Cree un quizz et charge le tableau des questions selon la matiere donnee en parametre 
  * @param c : la matiere du quizz

@@ -97,7 +97,7 @@ public class Game {
     private boolean processCommand(String w) {
         boolean wantToQuit=false;
         if (w.equals(Language.SORTIE)) wantToQuit=true;
-        else if(w.equals("lol")) player.printInfos(POO);
+        else if(w.equals("lol")) player.printInfos();
         else{
             goRoom(w);
         }

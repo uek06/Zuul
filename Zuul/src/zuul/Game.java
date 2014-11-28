@@ -13,16 +13,22 @@ public class Game {
     private static boolean finished=false;
     private static final Course POO=new Course("POO",true,2);
     private static final Course SSII=new Course("SSII",false,2);
-    private static final Course VIDE=new Course("",false,0);
-    private static final Course[] COURSES = {POO,SSII,VIDE};
+    public static final Course[] COURSES = {POO,SSII};
     
     public Game(){
         //methode qui demande la langue ?
         Language.initLanguage("FR");
         createRooms();
+        initQuestions();
         player=new Student();
-        player.initMap(COURSES);
+        player.initMap();
 
+    }
+    
+    private void initQuestions(){
+        POO.addQuestion(""+Language.QUIZZOOPQUESTION1,true);
+        //...
+        
     }
     
     private void createRooms(){

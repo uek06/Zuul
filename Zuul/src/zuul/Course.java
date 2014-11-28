@@ -1,5 +1,7 @@
 package zuul;
 
+import java.util.ArrayList;
+
 /**
  * @author ugo
  *
@@ -8,6 +10,7 @@ public class Course {
     private String name;
     private boolean isCompulsory;
     private int nombreMiniCoursExam;
+    private ArrayList<Question> questions=new ArrayList<Question>();
     
     public Course(String name,boolean isCompulsory,int nombreMiniCoursExam){
         this.name=name;
@@ -39,5 +42,13 @@ public class Course {
 	public int getNbMiniCoursExam() {
 		return nombreMiniCoursExam;
 	}
+
+    public void addQuestion(String question, boolean answer) {
+        questions.add(new Question(question,answer));
+    }
+    
+    public ArrayList<Question> getQuestions(){
+        return questions;
+    }
 	
 }

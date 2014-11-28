@@ -7,6 +7,7 @@ public class Student {
 	private int health;
 	private HashMap<Course, Integer> coursSuivis= new HashMap<Course,Integer>();
 	private HashMap<Course,Integer> tdSuivis= new HashMap<Course,Integer>();
+	private HashMap<Item,Integer> inventaire= new HashMap<Item,Integer>();
 	public static final int SANTEMINPOURTEST = 60;
 	private boolean livrePOOLu=false;
 
@@ -23,8 +24,8 @@ public class Student {
 		health+=50;
 	}
     
-	public void initMap(Course[] courses){
-	    for(Course co : courses){
+	public void initMap(){
+	    for(Course co : Game.COURSES){
 	       coursSuivis.put(co,0);
 	       tdSuivis.put(co,0);
 	    }
@@ -106,9 +107,13 @@ public class Student {
         livrePOOLu = true;
     }
 	
-	
 	public void printInfos(){
-	    System.out.println(""+Language.VOTREENERGIE+health);
+	    //on affiche l'énergie
+	    System.out.println(""+Language.VOTREENERGIE+health+".");
+	    //on affiche les cours/td suivis
 	    System.out.println(Language.SUIVI);
+	    for(Course co : Game.COURSES){
+	        System.out.println("_"+co.getName()+" : "+coursSuivis.get(co)+Language.COURS+", "+tdSuivis.get(co)+Language.TD);
+	    }
 	}
 }

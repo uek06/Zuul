@@ -1,5 +1,7 @@
 package zuul;
 
+import java.util.Random;
+
 public abstract class Workroom extends Room {
 
 	protected Course course;
@@ -12,13 +14,12 @@ public abstract class Workroom extends Room {
 	}
 
 	public void action(Student s) {
-		course = Game.getRandomCourse();
-		// course=new Course("POO");
-
-		if ("".equals(course.getName())) {
-			System.out.println(Language.PASCOURS);
-		} else {
-		    
+		
+		Random rand=new Random();
+		//1 chance sur le nombre de matières pour qu'il n'y ait pas cours
+		if(rand.nextInt(Game.COURSES.length+1)==1) System.out.println(Language.PASCOURS);
+		else {
+		    course = Game.getRandomCourse();
 			if (this instanceof Lab) {
 			    coursOuTd = "" + Language.TD;
                 estUnCours = false;

@@ -10,7 +10,8 @@ public class Book extends Item{
 	
 	public void use(Student player) {
 		if ("Objects First".equals(title)){
-			//Faire en sorte que l'etudiant a tout suivi
+			player.setLivrePOOLu();
+			player.lowerHealth(5);
 		}
 		System.out.println(content);
 	}

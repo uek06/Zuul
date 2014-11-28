@@ -5,14 +5,12 @@ import java.util.HashMap;
 
 public class Student {
 	private int health;
-	
 	private HashMap<Course, Integer> coursSuivis= new HashMap<Course,Integer>();
 	private HashMap<Course,Integer> tdSuivis= new HashMap<Course,Integer>();
 	public static final int SANTEMINPOURTEST = 60;
-	private static final int NUMBEROFOOPCOURSES = 2;
-	private static final int NUMBEROFSSIICOURSES = 2;
-	
-	public int getHealth() {
+	private boolean livrePOOLu=false;
+
+    public int getHealth() {
 		return health;
 	}
 
@@ -68,20 +66,20 @@ public class Student {
 		return health >= SANTEMINPOURTEST;
 	}
 	
+	public int getNbCoursOuTdSuivis(Course cours, boolean estUnCours){
+	    if (estUnCours) return coursSuivis.get(cours);
+	    else return tdSuivis.get(cours);
+	}
 	
-	public boolean aSuiviTousLesCoursEtTD(Course cours){
-		/*switch (cours.getName()) {
-		case "SSII" : 
-			//return coursSuivisSSII.size() >= NUMBEROFSSIICOURSES && 
-			//tdSuivisSSII.size() >= NUMBEROFSSIICOURSES; 
-			
-		//case "POO" : return coursSuivisPOO.size() >= NUMBEROFOOPCOURSES && 
-			//tdSuivisPOO.size() >= NUMBEROFOOPCOURSES;
-		}
-		
-		return false; //juste pour pouvoir compiler
-		*/
-		return true;
+	/**
+     * @param nb le health à définir
+     */
+    public void lowerHealth(int nb) {
+        this.health -= nb;
+    }
+
+    public boolean aSuiviTousLesCoursEtTD(Course cours){
+		return coursSuivis.get(cours)>=cours.getNbMiniCoursExam() && tdSuivis.get(cours)>=cours.getNbMiniCoursExam();
 	}
 	/**
 	 * Fait oublier a l'etudiant le dernier cours et le dernier TD correspondant a ce cours sauf s'il avait un cours d'avance
@@ -92,11 +90,25 @@ public class Student {
 		    tdSuivis.put(cours,tdSuivis.get(cours)-1);//alors on enlève un td
 		}
 		coursSuivis.put(cours,coursSuivis.get(cours)-1);//dans tous les cas on enlève un cours
-        
 	}
 	
+    /**
+     * @return le livrePOOLu
+     */
+    public boolean getLivrePOOLu() {
+        return livrePOOLu;
+    }
+
+    /**
+     * @param livrePOOLu le livrePOOLu à définir
+     */
+    public void setLivrePOOLu() {
+        livrePOOLu = true;
+    }
+	
+	
 	public void printInfos(){
-	    //pour debuger pour l'instant
-	    //System.out.println(coursSuivis.get(c.get(1)));
+	    System.out.println(""+Language.VOTREENERGIE+health);
+	    System.out.println(Language.SUIVI);
 	}
 }

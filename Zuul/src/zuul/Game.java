@@ -10,6 +10,7 @@ public class Game {
     private Room currentRoom;
     private String word;
     private Student player;
+    boolean finished=false;
     private static final Course POO=new Course("POO");
     private static final Course SSII=new Course("SSII");
     private static final Course VIDE=new Course("");
@@ -79,7 +80,7 @@ public class Game {
 
     public void play() {
         printWelcome();
-        boolean finished = false;
+        finished = false;
         while (!finished) {
             word=WordReader.getWord();
             finished = processCommand(word);
@@ -127,6 +128,9 @@ public class Game {
         return COURSES[r.nextInt(COURSES.length)];
     }
     
+    public void finish(){
+        finished=true;
+    }
     public static void main(String[] args){
         System.out.println("sfsdf");
         Game test=new Game();

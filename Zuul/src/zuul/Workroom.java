@@ -38,14 +38,13 @@ public abstract class Workroom extends Room {
 	}
 
 	public void caseCours(Student s) {
-		
 		switch (course.getName()) {
 		case "POO":
 			System.out.println(Language.VOUSDEVEZASSISTER);
 			displayCourse(s);
 			break;
 		case "SSII":
-			System.out.println(Language.VOULEZVOUSASSISTER);
+			System.out.println(Language.VOULEZVOUSYASSISTER);
 			while (true) {
 				choix = WordReader.getWord();
 				if (choix.equals("" + Language.OUI)) {
